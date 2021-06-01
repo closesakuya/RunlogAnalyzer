@@ -1,0 +1,1384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>water_mainwd</class>
+ <widget class="QMainWindow" name="water_mainwd">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>806</height>
+   </rect>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>water调试窗口</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="sel_log_btn">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>10</y>
+      <width>21</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="sel_log_lbl">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>10</y>
+      <width>771</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>water-core</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_18">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>10</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>日志选择:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="sel_tab_btn">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>50</y>
+      <width>21</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_19">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>50</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>输出到表格:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="sel_tab_lbl">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>50</y>
+      <width>771</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>water-core</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>190</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_1">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_1">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_1">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_1">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_20">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>160</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>列名称</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_21">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>160</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>匹配表达式</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_22">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>160</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>匹配序号</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_23">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>90</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>起始匹配</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_24">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>120</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>结束匹配</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="start_filter">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>90</y>
+      <width>511</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="end_filter">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>120</y>
+      <width>511</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_25">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>160</y>
+      <width>111</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>匹配跳过次数</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_2">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_2">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_2">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_3">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_3">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_3">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>280</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_4">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_4">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_4">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>310</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_5">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_5">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_5">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_6">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>340</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_6">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_6">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_6">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_6">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>370</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_7">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_7">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_7">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_7">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_8">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>400</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_8">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_8">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_8">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_9">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>430</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_9">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_9">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_9">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_9">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_10">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>460</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_10">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_10">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_10">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_10">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_11">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>490</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_11">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_11">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_11">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_11">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_12">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>520</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_12">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_12">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_12">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_12">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_13">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>550</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_13">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_13">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_13">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_13">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_14">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>580</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_14">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_14">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_14">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_14">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_15">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>610</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_15">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_15">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_15">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_15">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_16">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>640</y>
+      <width>911</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="item_name_16">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>0</y>
+       <width>151</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_reg_16">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>0</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_index_16">
+     <property name="geometry">
+      <rect>
+       <x>750</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="item_skip_16">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>0</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="load_setting_btn">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>90</y>
+      <width>71</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>载入配置</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dump_setting_btn">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>90</y>
+      <width>71</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>导出配置</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="result_lbl">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>670</y>
+      <width>891</width>
+      <height>81</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exec_btn">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>677</y>
+      <width>61</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>执行</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clear_output_btn">
+    <property name="geometry">
+     <rect>
+      <x>930</x>
+      <y>630</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>clear</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clear_input_btn">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>190</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>清空
+输入</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1000</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
