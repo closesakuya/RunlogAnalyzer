@@ -4,7 +4,7 @@
 
 主要用于分析水质仪器日志，捕捉测量开始结束信号，通过正则匹配信息后统计。
 
-<img src="D:\share_dir\product_env\01.SVN\01.local_git\WaterRunlogAnalyzer\README.assets\tip01.png" style="zoom: 67%;" />
+![](https://github.com/closesakuya/RunlogAnalyzer/blob/main/res/tip01.png)
 
 ### 使用指导
 
