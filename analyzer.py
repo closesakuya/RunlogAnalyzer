@@ -62,11 +62,11 @@ class Analyzer:
             self.__tab.cell(0 + 1, i + 1, item)
         self.__output.save(self.__dst)
 
-    def set_start_end_marker(self, start_marker: str or re.RegexFlag, end_marker: str or re.RegexFlag):
+    def set_start_end_marker(self, start_marker: str or re.Pattern, end_marker: str or re.Pattern):
         self.__start_marker = start_marker
         self.__end_marker = end_marker
 
-    def add_capture_item(self, column_name: str, item_filter: str or re.RegexFlag,
+    def add_capture_item(self, column_name: str, item_filter: str or re.Pattern,
                          index_in_filter: int = 0, skip_times: int = 0):
         self.__filter_map[(item_filter, index_in_filter, skip_times)] = column_name
 
