@@ -130,9 +130,23 @@ class UI(QMainWindow, Ui_water_mainwd):
                             item = self.__getattribute__(k)
                             if isinstance(item, QLineEdit) or isinstance(item, QTextEdit):
                                 item.setText(v)
+                    # 更新读取字典
+                    if dct.get("items_lists", None) is not None and isinstance(dct["items_lists"], list):
+                        for idx, item in enumerate(dct["items_lists"]):
+                            if not isinstance(item, dict):
+                                self.log_msg(u"{0} 读取异常".format(item))
+                                continue
+                            for k_name in ["item_name", "item_reg", "item_index", "item_skip"]:
+                                if hasattr(self, "{0}_{1}".format(k_name, idx + 1)):
+                                    self.__getattribute__("{0}_{1}".format(k_name, idx + 1)).setText(
+                                        str(item.get(k_name, "")))
+                    else:
+                        self.log_msg(u"未发现items_lists 或其不为列表")
+
                 self.log_msg(u"从:{0} 读取配置成功".format(path))
         except Exception as e:
             self.log_msg(str(e))
+
 
     def dump_setting(self, path):
         try:
@@ -140,8 +154,19 @@ class UI(QMainWindow, Ui_water_mainwd):
                 dct = {}
                 for k, item in self.__dict__.items():
                     if isinstance(item, QLineEdit):
-                        if k.startswith("item_") or k.endswith("_filter"):
+                        if k.endswith("_filter"):
                             dct[k] = item.text()
+                dct["items_lists"] = []
+                idx_cnt = 1
+                while 1:
+                    if not hasattr(self, "{0}_{1}".format("item_name", idx_cnt)):
+                        break
+                    per_line = {}
+                    for k_name in ["item_name", "item_reg", "item_index", "item_skip"]:
+                        if hasattr(self, "{0}_{1}".format(k_name, idx_cnt)):
+                            per_line[k_name] = self.__getattribute__("{0}_{1}".format(k_name, idx_cnt)).text()
+                    dct["items_lists"].append(per_line)
+                    idx_cnt += 1
                 f.write(json.dumps(dct, indent=1, ensure_ascii=False))
                 self.log_msg(u"保存配置文件到:{0} 成功".format(path))
         except Exception as e:
@@ -198,7 +223,9 @@ class UI(QMainWindow, Ui_water_mainwd):
 
             items_list = []
             items_list.clear()
-            for i in range(16):
+            for i in range(999):
+                if not hasattr(self, "item_name_{0}".format(i + 1)):
+                    break
                 name = self.__getattribute__("item_name_{0}".format(i + 1)).text()
                 pattern = self.__getattribute__("item_reg_{0}".format(i + 1)).text()
                 if not pattern:
