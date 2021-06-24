@@ -59,6 +59,11 @@ class Analyzer:
             raise TypeError("not support title type:{0} of {1}".format(type(title), title))
         for i, item in enumerate(self.__title):
             self.__title_map[item] = i
+        # 已有标题写入
+        if self.__tab.max_row >= 2:
+            return
+        # 生成标题
+        for i, item in enumerate(self.__title):
             self.__tab.cell(0 + 1, i + 1, item)
         self.__output.save(self.__dst)
 
@@ -77,7 +82,9 @@ class Analyzer:
             self.raw_total_line = f.readlines().__len__()
             print("{0} total lines is : {1}".format(self.__src, self.raw_total_line))
         is_in_session = False
-        row_index = 1
+        # row_index = 1
+        # 从空行开始
+        row_index = self.__tab.max_row
         search_map = {}
         with open(self.__src, "r", encoding="utf-8") as f:
             st = time.time()

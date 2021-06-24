@@ -125,6 +125,15 @@ class UI(QMainWindow, Ui_water_mainwd):
             with open(path, "r", encoding="utf-8") as f:
                 dct = json.load(f)
                 if dct:
+                    # 先清空
+                    for i in range(99):
+                        if hasattr(self, "{0}_{1}".format("item_name", i + 1)):
+                            self.__getattribute__("{0}_{1}".format("item_name", i + 1)).setText("")
+                            self.__getattribute__("{0}_{1}".format("item_reg", i + 1)).setText("")
+                            self.__getattribute__("{0}_{1}".format("item_index", i + 1)).setText("0")
+                            self.__getattribute__("{0}_{1}".format("item_skip", i + 1)).setText("0")
+                        else:
+                            break
                     for k, v in dct.items():
                         if hasattr(self, k):
                             item = self.__getattribute__(k)
@@ -217,8 +226,12 @@ class UI(QMainWindow, Ui_water_mainwd):
         for src in self.sel_log_lbl.text().split("||"):
             if self.__task_map.get(src, None) is not None:
                 continue
-            a = Analyzer(src, dst,
-                         sheet_name=os.path.splitext(os.path.split(src)[1])[0])
+            # 输出到同一Sheet表
+            if self.AlltoOneSheetCBtn.isChecked() and dst:
+                sheet_name = self.SheetName.text()
+            else:
+                sheet_name = os.path.splitext(os.path.split(src)[1])[0]
+            a = Analyzer(src, dst, sheet_name=sheet_name)
             self.__task_map[src] = a
 
             items_list = []

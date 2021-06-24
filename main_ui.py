@@ -922,6 +922,12 @@ class Ui_water_mainwd(object):
         self.tab_6 = QWidget()
         self.tab_6.setObjectName(u"tab_6")
         self.tabWidget.addTab(self.tab_6, "")
+        self.AlltoOneSheetCBtn = QCheckBox(self.centralwidget)
+        self.AlltoOneSheetCBtn.setObjectName(u"AlltoOneSheetCBtn")
+        self.AlltoOneSheetCBtn.setGeometry(QRect(660, 130, 151, 19))
+        self.SheetName = QLineEdit(self.centralwidget)
+        self.SheetName.setObjectName(u"SheetName")
+        self.SheetName.setGeometry(QRect(820, 130, 161, 21))
         water_mainwd.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(water_mainwd)
         self.menubar.setObjectName(u"menubar")
@@ -1159,5 +1165,7 @@ class Ui_water_mainwd(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QCoreApplication.translate("water_mainwd", u"4", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_5), QCoreApplication.translate("water_mainwd", u"5", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), QCoreApplication.translate("water_mainwd", u"6", None))
+        self.AlltoOneSheetCBtn.setText(QCoreApplication.translate("water_mainwd", u"\u6c47\u603b\u5230\u7edf\u4e00Sheet:", None))
+        self.SheetName.setText(QCoreApplication.translate("water_mainwd", u"Sheet01", None))
     # retranslateUi
 
