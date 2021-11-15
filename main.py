@@ -231,7 +231,8 @@ class UI(QMainWindow, Ui_water_mainwd):
                 sheet_name = self.SheetName.text()
             else:
                 sheet_name = os.path.splitext(os.path.split(src)[1])[0]
-            a = Analyzer(src, dst, sheet_name=sheet_name)
+            a = Analyzer(src, dst, sheet_name=sheet_name,
+                         greed_mode=self.GreedMode.isChecked(), encoding=self.EncodingName.text())
             self.__task_map[src] = a
 
             items_list = []

@@ -9,10 +9,11 @@ from xlutils.copy import copy as xl_copy
 import random
 import re
 import copy
-
+import chardet
 
 class Analyzer:
-    def __init__(self, src: str, dst: str = "", sheet_name: str = "Sheet1"):
+    def __init__(self, src: str, dst: str = "", sheet_name: str = "Sheet1",
+                 encoding: str = None, greed_mode: bool = False):
         assert os.path.exists(src)
         self.__src = src
         self.__sheet_name = sheet_name
@@ -23,6 +24,8 @@ class Analyzer:
         self.__end_marker = ""
         self.__filter_map = {}
         self.__is_done = False
+        self.__encoding = encoding if encoding else None
+        self.__greed_mode = greed_mode
         self.raw_total_line = 0
         self.raw_read_line = 0
         self.output_write_line = 0
@@ -78,7 +81,14 @@ class Analyzer:
     def _run(self, time_out: float = 60):
         assert self.__start_marker
         assert self.__end_marker
-        with open(self.__src, "r", encoding="utf-8") as f:
+        # 自动识别文件编码
+        my_encoding = self.__encoding
+        if not my_encoding:
+            with open(self.__src, 'rb') as f:
+                my_encoding = chardet.detect(f.read(200))['encoding']
+
+        print("use encoding = ", my_encoding, "\n")
+        with open(self.__src, "r", encoding=my_encoding) as f:
             self.raw_total_line = f.readlines().__len__()
             print("{0} total lines is : {1}".format(self.__src, self.raw_total_line))
         is_in_session = False
@@ -86,21 +96,29 @@ class Analyzer:
         # 从空行开始
         row_index = self.__tab.max_row
         search_map = {}
-        with open(self.__src, "r", encoding="utf-8") as f:
+        with open(self.__src, "r", encoding=my_encoding) as f:
             st = time.time()
             while time.time() - st < time_out:
                 line = f.readline()
                 self.raw_read_line += 1
                 if not line:
                     break
-                if not is_in_session:
+                be_trig = False  # 由查找开始标志到查找到跳变标志
+                # if not is_in_session:
+                if True:  # to check 任何时候查找到开始标志都开始新的匹配
                     if re.search(self.__start_marker, line):
+                        if is_in_session:  # 未匹配到结束标志就开始
+                            if self.__greed_mode:  # 贪婪模式则保存上一行
+                                row_index += 1
+                            else:  # 否则清空该行
+                                for ii in range(self.__title_map.__len__()):
+                                    self.__tab.cell(row_index + 1, ii + 1, "")
                         del search_map
                         search_map = copy.copy(self.__filter_map)
                         self.output_write_line += 1
                         is_in_session = True
+                        be_trig = True
                 if is_in_session:
-                    # TODO 解析
                     for k, v in list(search_map.items()):
                         pattern, index, skip_times = k
                         sc_res = re.search(pattern, line)
@@ -119,8 +137,8 @@ class Analyzer:
                             else:
                                 search_map[(pattern, index, skip_times)] = v
 
-                    # 查找是否结束
-                    if re.search(self.__end_marker, line):
+                    # 查找是否结束 (注 be_trig标志用于防止起始匹配和结束匹配相同时情况)
+                    if re.search(self.__end_marker, line) and not be_trig:
                         is_in_session = False
                         row_index += 1
 
