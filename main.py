@@ -126,7 +126,7 @@ class UI(QMainWindow, Ui_water_mainwd):
                 dct = json.load(f)
                 if dct:
                     # 先清空
-                    for i in range(99):
+                    for i in range(9999):
                         if hasattr(self, "{0}_{1}".format("item_name", i + 1)):
                             self.__getattribute__("{0}_{1}".format("item_name", i + 1)).setText("")
                             self.__getattribute__("{0}_{1}".format("item_reg", i + 1)).setText("")
